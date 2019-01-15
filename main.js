@@ -1,33 +1,30 @@
 'use strict';
 
-function newpostReq(url, callBack) {
-  var xmlhttp;
-  if (window.XDomainRequest) {
-    console.log(1);
-    xmlhttp = new XDomainRequest();
-    xmlhttp.onload = function() {
-      callBack(xmlhttp.responseText)
-    };
-  } else if (window.XMLHttpRequest) {
-    console.log(2);
-    xmlhttp = new XMLHttpRequest();
-  } else {
-    console.log(3);
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        callBack(xmlhttp.responseText);
-      }
-  }
-  xmlhttp.open("GET",url,true);
-  xmlhttp.send();
-}
-
 (function() {
   var url = 'https://wt-douglasbamber-gmail_com-0.sandbox.auth0-extend.com/plans';
 
-  newpostReq(url, function(data) {
+  function newReq(url, callBack) {
+    var xmlhttp;
+    if (window.XDomainRequest) {
+      xmlhttp = new XDomainRequest();
+      xmlhttp.onload = function() {
+        callBack(xmlhttp.responseText)
+      };
+    } else if (window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          callBack(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
+  }
+
+  newReq(url, function(data) {
     var arr = JSON.parse(data);
     var out = "";
     var i;
