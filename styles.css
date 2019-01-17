@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  background-color: #fafafa;
+}
+
+.container {
+  margin: 24px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #00000020;
+  border-radius: 3px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+
+}
+
+.card-subtitle {
+
+}
+
+.card-text {
+
+}

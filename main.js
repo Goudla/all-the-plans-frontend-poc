@@ -30,16 +30,14 @@
     var i;
     for(i = 0; i < arr.length; i++) {
       out += [
-        '<a href="' + arr[i].link + '" target="_blank" >',
+        '<a class="card" href="' + arr[i].link + '" target="_blank" >',
         '<img src="' + arr[i].thumbnailImage + '" alt="' + arr[i].title + '" width="100">',
-        '<br>',
-        arr[i].title,
-        '<br>',
-        '<small>' + arr[i].collectionTitle + '</small>',
-        '<br>',
-        'Floor Area' + arr[i].floorArea + ' m<sup>2</sup>',
-        '</a>',
-        '<br>'
+        '<div class="card-body">',
+        '<h5 class="card-title">' + arr[i].title + '</h5>',
+        '<h6 class="card-subtitle">' + arr[i].collectionTitle + '</h6>',
+        '<p class="card-text">' + 'Floor Area' + arr[i].floorArea + ' m<sup>2</sup></p>',
+        '</div>',
+        '</a>'
       ].join('');
     }
     document.getElementById("plans").innerHTML = out;
