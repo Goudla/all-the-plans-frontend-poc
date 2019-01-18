@@ -61,11 +61,10 @@
       var value = sortedArray[i];
       out += [
         '<a class="card" href="' + value.link + '" target="_blank" >',
-        '<img src="' + value.thumbnailImage + '" alt="' + value.title + '" width="100">',
+        '<img src="' + value.thumbnailImage + '" alt="' + value.title + '">',
         '<div class="card-body">',
+        '<h4 class="card-title">' + value.title + ' ' + value.floorArea + ' m<sup>2</sup></h5>',
         '<h6 class="card-subtitle">' + value.companyTitle + ' / ' + value.collectionTitle + '</h6>',
-        '<h5 class="card-title">' + value.title + '</h5>',
-        '<p class="card-text">' + value.floorArea + ' m<sup>2</sup></p>',
         '</div>',
         '</a>'
       ].join('');

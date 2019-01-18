@@ -1,33 +1,38 @@
 body {
-  margin: 0;
-  background-color: #fafafa;
+  margin: 0px;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container {
-  margin: 24px;
-}
-
-.card {
-  background-color: #ffffff;
-  border: 1px solid #00000020;
-  border-radius: 3px;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.card-body {
+  max-width: 300px;
+  margin: auto;
   padding: 20px;
 }
 
-.card-title {
+.card {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 24px;
+  position: relative;
+  color: #504f5e;
+}
 
+.card img {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.card-body {
+  padding-top: 4px;
+}
+
+.card-title {
+  margin-top: 0px;
+  margin-bottom: 12px;
 }
 
 .card-subtitle {
-
-}
-
-.card-text {
-
+  margin-top: -6px;
+  margin-bottom: 8px;
 }
