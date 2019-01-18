@@ -63,7 +63,7 @@
         '<a class="card" href="' + value.link + '" target="_blank" >',
         '<img src="' + value.thumbnailImage + '" alt="' + value.title + '">',
         '<div class="card-body">',
-        '<h4 class="card-title">' + value.title + ' ' + value.floorArea + ' m<sup>2</sup></h5>',
+        '<h4 class="card-title">' + value.title + ' - ' + value.floorArea + ' m<sup>2</sup></h5>',
         '<h6 class="card-subtitle">' + value.companyTitle + ' / ' + value.collectionTitle + '</h6>',
         '</div>',
         '</a>'
