@@ -65,6 +65,7 @@
         '<div class="card-body">',
         '<h4 class="card-title">' + value.title + ' - ' + value.floorArea + ' m<sup>2</sup></h5>',
         '<h6 class="card-subtitle">' + value.companyTitle + ' / ' + value.collectionTitle + '</h6>',
+        '<h6 class="card-subtitle">' + value.bedrooms + ' bedroom(s) ' + value.bathrooms + ' bathroom(s) ' + value.garages + ' garage(s)' + '</h6>',
         '</div>',
         '</a>'
       ].join('');
