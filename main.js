@@ -3,6 +3,17 @@
 (function() {
   var url = 'https://wt-douglasbamber-gmail_com-0.sandbox.auth0-extend.com/plans';
 
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+  }
+
   function newReq(url, callBack) {
     var xmlhttp;
     if (window.XDomainRequest) {
@@ -25,17 +36,36 @@
   }
 
   newReq(url, function(data) {
-    var arr = JSON.parse(data);
+    var array = JSON.parse(data);
+    var sortOrder = getQueryVariable('sortOrder');
+    var sortDirection = getQueryVariable('sortDirection');
+    var sortedArray;
+    if (sortOrder) {
+      sortedArray = array.sort(function(a, b) {
+        var valueA = isNaN(a[sortOrder]) ? a[sortOrder].toUpperCase() : a[sortOrder];
+        var valueB = isNaN(b[sortOrder]) ? b[sortOrder].toUpperCase() : b[sortOrder];
+        if (valueA < valueB) {
+          return sortDirection === 'desc' ? 1 : -1;
+        }
+        if (valueA > valueB) {
+          return sortDirection === 'desc' ? -1 : 1;
+        }
+        return 0;
+      });
+    } else {
+      sortedArray = array
+    }
     var out = "";
     var i;
-    for(i = 0; i < arr.length; i++) {
+    for(i = 0; i < sortedArray.length; i++) {
+      var value = sortedArray[i];
       out += [
-        '<a class="card" href="' + arr[i].link + '" target="_blank" >',
-        '<img src="' + arr[i].thumbnailImage + '" alt="' + arr[i].title + '" width="100">',
+        '<a class="card" href="' + value.link + '" target="_blank" >',
+        '<img src="' + value.thumbnailImage + '" alt="' + value.title + '" width="100">',
         '<div class="card-body">',
-        '<h5 class="card-title">' + arr[i].title + '</h5>',
-        '<h6 class="card-subtitle">' + arr[i].collectionTitle + '</h6>',
-        '<p class="card-text">' + 'Floor Area' + arr[i].floorArea + ' m<sup>2</sup></p>',
+        '<h6 class="card-subtitle">' + value.companyTitle + ' / ' + value.collectionTitle + '</h6>',
+        '<h5 class="card-title">' + value.title + '</h5>',
+        '<p class="card-text">' + value.floorArea + ' m<sup>2</sup></p>',
         '</div>',
         '</a>'
       ].join('');
