@@ -38,7 +38,7 @@
   newReq(url, function(data) {
     var array = JSON.parse(data);
     var sortOrder = getQueryVariable('sortOrder');
-    var sortDirection = getQueryVariable('sortDirection');
+    var sortDirection = getQueryVariable('sortDirection') || 'floorArea';
     var sortedArray;
     if (sortOrder) {
       sortedArray = array.sort(function(a, b) {
