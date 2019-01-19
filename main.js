@@ -37,6 +37,7 @@
 
   newReq(url, function(data) {
     var array = JSON.parse(data);
+    var total = array.length;
     var sortOrder = getQueryVariable('sortOrder');
     var sortDirection = getQueryVariable('sortDirection') || 'floorArea';
     var sortedArray;
@@ -70,6 +71,7 @@
         '</a>'
       ].join('');
     }
-    document.getElementById("plans").innerHTML = out;
+    document.getElementById('total').innerHTML = total;
+    document.getElementById('plans').innerHTML = out;
   });
 })();
