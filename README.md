@@ -4,7 +4,7 @@ A proof of concept web app for displaying plans for New Zealand's top building c
 Demo
 -----------
 
-[All the plans](https://goudla.github.io/all-the-plans-web-app/)
+[All the plans](https://goudla.github.io/all-the-plans-frontend-poc/)
 
 Goals
 -----------
