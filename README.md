@@ -1,4 +1,4 @@
-# all-the-plans-web-app
+# All the plans frontend
 A proof of concept web app for displaying plans for New Zealand's top building companies.
 
 Demo
