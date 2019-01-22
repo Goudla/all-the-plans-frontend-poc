@@ -38,8 +38,9 @@
   newReq(url, function(data) {
     var array = JSON.parse(data);
     var total = array.length;
-    var sortOrder = getQueryVariable('sortOrder');
-    var sortDirection = getQueryVariable('sortDirection') || 'floorArea';
+    var sortOrder = getQueryVariable('sortOrder') || 'floorArea';
+    var sortDirection = getQueryVariable('sortDirection');
+    console.log('sortDirection', sortDirection);
     var sortedArray;
     if (sortOrder) {
       sortedArray = array.sort(function(a, b) {
@@ -65,7 +66,11 @@
         '<img src="' + value.thumbnailImage + '" alt="' + value.title + '">',
         '<div class="card-body">',
         '<h4 class="card-title">' + value.title + ' - ' + value.floorArea + ' m<sup>2</sup></h5>',
-        '<h6 class="card-subtitle">' + value.companyTitle + ' / ' + value.collectionTitle + '</h6>',
+        '<h6 class="card-subtitle">',
+        value.companyTitle,
+        value.collectionTitle ? ' / ' : '',
+        value.collectionTitle || '',
+        '</h6>',
         '<h6 class="card-subtitle">' + value.bedrooms + ' bedroom(s) ' + value.bathrooms + ' bathroom(s) ' + value.garages + ' garage(s)' + '</h6>',
         '</div>',
         '</a>'
