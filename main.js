@@ -40,7 +40,6 @@
     var total = array.length;
     var sortOrder = getQueryVariable('sortOrder') || 'floorArea';
     var sortDirection = getQueryVariable('sortDirection');
-    console.log('sortDirection', sortDirection);
     var sortedArray;
     if (sortOrder) {
       sortedArray = array.sort(function(a, b) {
