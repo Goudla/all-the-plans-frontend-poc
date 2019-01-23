@@ -75,7 +75,8 @@
         '</a>'
       ].join('');
     }
-    document.getElementById('total').innerHTML = total;
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('total').innerHTML = total + ' Plans';
     document.getElementById('plans').innerHTML = out;
   });
 })();
