@@ -1,5 +1,23 @@
 'use strict';
 
+// Utils
+/**
+ * Format a number as currency
+ * @param  {number} value The value to be formatted
+ * @return {string}       The value formatted as currency
+ */
+function formatCurrency(value) {
+  if (!value) return;
+
+  var a = value.toFixed(2).split('');
+  var l = a.length;
+  for (var i = l - 6; i >= 3 ; i -= 3) {
+    a.splice(i, 0, ',');
+  }
+
+  return '$' + a.join('');
+}
+
 (function() {
   var url = 'https://wt-douglasbamber-gmail_com-0.sandbox.auth0-extend.com/plans';
 
@@ -70,7 +88,7 @@
         value.floorArea,
         ' m<sup>2</sup>',
         ' - ',
-        value.price ? '$' + value.price.toFixed(2) : 'POA',
+        value.price ? formatCurrency(value.price) : 'POA',
         '</h4>',
         '<h6 class="card-subtitle">',
         value.companyTitle,
